@@ -11,7 +11,7 @@ const steps = [
 ];
 
 const guards = [
-  { t: "Banco gerenciado pago", d: "O site anterior caiu por limite de plano gratuito. Aqui o plano é dimensionado para a Progep, com alerta antes de chegar perto do limite." },
+  { t: "Banco gerenciado pago", d: "O site anterior caiu por limite de plano gratuito. Aqui o plano é dimensionado para a Projep, com alerta antes de chegar perto do limite." },
   { t: "Pool de conexões", d: "Muitos usuários compartilham poucas conexões. É assim que 60 pessoas ao mesmo tempo não derrubam o banco." },
   { t: "Cache nos dashboards", d: "A maior parte das telas lê dados já calculados. Só uma fração das requisições chega ao banco." },
   { t: "Monitoramento e backup", d: "Alerta de queda e de limite, backup diário e plano de restauração documentado. Se algo falhar, sabemos onde olhar." },
@@ -22,7 +22,7 @@ export default function ComoFunciona() {
   return (
     <Guard route="/">
       <h1 className="text-3xl font-extrabold text-ink">Como o sistema funciona</h1>
-      <p className="mb-6 mt-1 max-w-3xl text-muted">Um único lugar para todos os dados da Progep, com integração automática e números em que a diretoria pode confiar para decidir. Clique nas etapas.</p>
+      <p className="mb-6 mt-1 max-w-3xl text-muted">Um único lugar para todos os dados da Projep, com integração automática e números em que a diretoria pode confiar para decidir. Clique nas etapas.</p>
       <div className="grid gap-2 md:grid-cols-5">
         {steps.map((s, i) => (
           <button

@@ -3,7 +3,7 @@
 Status: aprovado pelo cliente em conversa ("estou de acordo"). Substitui o foco do desenho anterior: o protótipo deixa de ser só um conjunto de dashboards e passa a **explicar e provar** como o sistema funciona.
 
 ## Intenção
-Na reunião 2, convencer a diretoria da Progep de que o sistema (1) aguenta 60 usuários, (2) integra as fontes de dados sem retrabalho nem duplicidade e (3) traz vantagens concretas, com uma demonstração que funciona.
+Na reunião 2, convencer a diretoria da Projep de que o sistema (1) aguenta 60 usuários, (2) integra as fontes de dados sem retrabalho nem duplicidade e (3) traz vantagens concretas, com uma demonstração que funciona.
 
 ## Telas novas (visíveis a todos os perfis)
 1. **Como funciona** (landing): diagrama clicável das fontes (CRM, Google Ads, Monday, formulários) até ingestão, validação, banco único e dashboards por perfil.

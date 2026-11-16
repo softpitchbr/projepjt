@@ -3,7 +3,7 @@
 Status: aguardando aprovação.
 
 ## Intenção
-Mostrar à diretoria da Progep, na reunião 2, como será o sistema único de gestão, para validar telas, perfis e fluxos antes de construir. Por trás: a Progep quer **tomada de decisão com dados confiáveis** e visão integrada dos setores.
+Mostrar à diretoria da Projep, na reunião 2, como será o sistema único de gestão, para validar telas, perfis e fluxos antes de construir. Por trás: a Projep quer **tomada de decisão com dados confiáveis** e visão integrada dos setores.
 
 ## Objetivos
 - Protótipo navegável com dados fictícios, visual próximo do definitivo.
@@ -14,7 +14,7 @@ Mostrar à diretoria da Progep, na reunião 2, como será o sistema único de ge
 
 ## Não objetivos
 - Sem backend, banco, login real ou integrações (CRM, Google Ads).
-- Sem dados reais da Progep.
+- Sem dados reais da Projep.
 - Não é a base de produção; reaproveitar código é decisão posterior.
 
 ## Anti-objetivo
@@ -23,7 +23,7 @@ Os dados fictícios nunca podem ser confundidos com reais: faixa fixa "Dados fic
 ## Restrições
 - Roda local (`npm run dev`) e pode gerar build estático para compartilhar.
 - Dimensionamento do sistema real: até 60 usuários (o protótipo não testa carga).
-- CRM tratado como genérico ("CRM"); Pipefy ou Ploomes a confirmar com a Progep.
+- CRM tratado como genérico ("CRM"); Pipefy ou Ploomes a confirmar com a Projep.
 
 ## Abordagens
 1. **Next.js + TypeScript + Tailwind + Recharts, mock local** (escolhida): mesma stack proposta para o real, gráficos de verdade, reaproveitável.

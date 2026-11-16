@@ -11,7 +11,7 @@ const wins = [
   ["Decisão com dado confiável", "Um número só por indicador. A diretoria discute o plano de ação, não qual relatório está certo."],
   ["Integração entre setores", "Projetos, comercial e marketing enxergam o andamento uns dos outros sem esperar a RG."],
   ["Base para bonificação", "Metas e resultados por membro prontos para o sistema de bonificação de 2027."],
-  ["Autonomia", "Código documentado e a Ana treinada para manter. A Progep não depende de uma pessoa só."],
+  ["Autonomia", "Código documentado e a Ana treinada para manter. A Projep não depende de uma pessoa só."],
   ["Menos ferramentas soltas", "Os mini-sites e parte do que se paga no Monday passam para um lugar só."],
 ];
 
@@ -22,7 +22,7 @@ export default function Vantagens() {
   return (
     <Guard route="/vantagens">
       <h1 className="text-3xl font-extrabold text-ink">Vantagens</h1>
-      <p className="mb-4 mt-1 max-w-3xl text-muted">O que muda para a Progep. Os valores abaixo são <strong>estimativas</strong>: ajuste com os números reais e o resultado recalcula.</p>
+      <p className="mb-4 mt-1 max-w-3xl text-muted">O que muda para a Projep. Os valores abaixo são <strong>estimativas</strong>: ajuste com os números reais e o resultado recalcula.</p>
       <div className="mb-8 grid gap-3 md:grid-cols-2">
         {wins.map(([t, d]) => (
           <div key={t} className="rounded-xl border border-line bg-white p-4">

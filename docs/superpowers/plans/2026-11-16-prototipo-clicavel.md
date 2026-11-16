@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Protótipo navegável do sistema de gestão da Progep, com dados fictícios e visões por perfil.
+**Goal:** Protótipo navegável do sistema de gestão da Projep, com dados fictícios e visões por perfil.
 
 **Architecture:** App Next.js (App Router) em `prototype/`, sem backend. Dados fictícios em `data/`, regras de cálculo puras em `lib/` (testáveis), perfil ativo em um Context React que filtra menu e conteúdo.
 

@@ -58,7 +58,7 @@ export default function Custos() {
         </section>
       </div>
 
-      <h2 className="mb-3 mt-8 text-xl font-extrabold">Quanto a Progep gasta com o tempo</h2>
+      <h2 className="mb-3 mt-8 text-xl font-extrabold">Quanto a Projep gasta com o tempo</h2>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         <KpiCard label="Infra por mês" value={brl(infra)} />
         <KpiCard label="Suporte por mês" value={brl(support)} />

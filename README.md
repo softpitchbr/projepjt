@@ -1,8 +1,8 @@
-# Projepjt: ERP / plataforma de gestão da Progep
+# Projepjt: ERP / plataforma de gestão da Projep
 
-Plataforma única para centralizar os dados e a gestão dos setores da Progep (comercial, marketing, projetos, gestão de pessoas, financeiro), substituindo os mini-sites isolados e reduzindo o retrabalho de extração de dados.
+Plataforma única para centralizar os dados e a gestão dos setores da Projep (comercial, marketing, projetos, gestão de pessoas, financeiro), substituindo os mini-sites isolados e reduzindo o retrabalho de extração de dados.
 
-Desenvolvimento: Triângulo Solutions. Cliente: Progep.
+Desenvolvimento: Triângulo Solutions. Cliente: Projep.
 
 ## Documentos
 

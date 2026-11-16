@@ -6,9 +6,9 @@
 | 2 | Definir stack e arquitetura, com argumentação de estabilidade | Triângulo (dev) | Pendente |
 | 3 | Criar protótipo inicial (sem dados reais) | Triângulo (dev) | Pendente |
 | 4 | Montar três propostas (contrapartida maior, menor, comercial puro) | Triângulo | Pendente |
-| 5 | Confirmar número de usuários: **máx. 60** | Progep | Feito |
-| 6 | Agendar reunião 2 e levar a diretoria (Caique, Cid, Luma, Rander) | Progep / Triângulo | Pendente |
-| 7 | Acesso a dados/banco para validar o protótipo (se aplicável) | Progep (Ana) | Pendente |
+| 5 | Confirmar número de usuários: **máx. 60** | Projep | Feito |
+| 6 | Agendar reunião 2 e levar a diretoria (Caique, Cid, Luma, Rander) | Projep / Triângulo | Pendente |
+| 7 | Acesso a dados/banco para validar o protótipo (se aplicável) | Projep (Ana) | Pendente |
 | 8 | Mostrar fluxo de gravação/transcrição do Neto | Caique | Opcional |
 
 ## Pauta sugerida para a reunião 2

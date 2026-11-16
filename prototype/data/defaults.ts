@@ -1,6 +1,6 @@
 import type { SavingsInput } from "@/lib/savings";
 
-// Premissas ESTIMADAS, para a Progep corrigir com os números reais.
+// Premissas ESTIMADAS, para a Projep corrigir com os números reais.
 export const SAVINGS_DEFAULTS: SavingsInput = {
   toolCostYear: 6000,
   reportHoursMonth: 20,

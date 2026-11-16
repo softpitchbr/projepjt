@@ -47,7 +47,7 @@ export default function Capacidade() {
   return (
     <Guard route="/capacidade">
       <h1 className="text-3xl font-extrabold text-ink">Aguenta 60 usuários?</h1>
-      <p className="mb-4 mt-1 max-w-3xl text-muted">Mova o controle e compare o que acontece com a estrutura que a Progep tinha e com a que propomos. É um <strong>modelo com premissas visíveis</strong>, não uma medição: o teste de carga real entra na fase com backend.</p>
+      <p className="mb-4 mt-1 max-w-3xl text-muted">Mova o controle e compare o que acontece com a estrutura que a Projep tinha e com a que propomos. É um <strong>modelo com premissas visíveis</strong>, não uma medição: o teste de carga real entra na fase com backend.</p>
       <div className="mb-6 rounded-xl border border-line bg-white p-4">
         <label className="font-extrabold">Usuários ao mesmo tempo no pico: {users}</label>
         <input type="range" min={1} max={100} value={users} onChange={(e) => setUsers(Number(e.target.value))} className="mt-2 w-full accent-brand" />

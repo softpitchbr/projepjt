@@ -9,7 +9,7 @@ import { DemoBanner } from "@/components/DemoBanner";
 
 export const metadata: Metadata = {
   title: "Projepjt — protótipo",
-  description: "Protótipo clicável do sistema de gestão da Progep (dados fictícios)",
+  description: "Protótipo clicável do sistema de gestão da Projep (dados fictícios)",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
