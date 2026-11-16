@@ -13,7 +13,7 @@ export default function Home() {
   const funnel = crossFunnel(mkt, com);
   return (
     <Guard route="/">
-      <h1 className="mb-4 text-2xl font-bold">Visão geral</h1>
+      <h1 className="mb-4 text-2xl font-extrabold text-ink">Visão geral</h1>
       <div className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
         <KpiCard label="Faturamento do mês" value={brl(com.revenue)} delta={`Meta ${brl(com.goalRevenue)}`} />
         <KpiCard label="Leads" value={String(mkt.leads)} delta={`Planejado ${mkt.plannedLeads}`} />
@@ -21,7 +21,7 @@ export default function Home() {
         <KpiCard label="Projetos em atenção" value={String(projects.filter((p) => p.status !== "No prazo").length)} />
       </div>
       <h2 className="mb-2 font-semibold">Funil cruzado: projetado vs. realizado</h2>
-      <BarsChart data={funnel} x="stage" series={[{ key: "planned", name: "Projetado", color: "#94a3b8" }, { key: "actual", name: "Realizado", color: "#2563eb" }]} />
+      <BarsChart data={funnel} x="stage" series={[{ key: "planned", name: "Projetado", color: "#a8bdb1" }, { key: "actual", name: "Realizado", color: "#1e8a5c" }]} />
     </Guard>
   );
 }

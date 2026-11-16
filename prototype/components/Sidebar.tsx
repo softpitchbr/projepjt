@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
@@ -17,20 +18,26 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="border-b border-slate-200 bg-slate-900 text-slate-100 md:min-h-screen md:w-60 md:border-b-0">
+    <aside className="bg-ink text-white md:min-h-screen md:w-64">
       <div className="flex items-center justify-between p-4">
-        <span className="text-lg font-bold">Projepjt</span>
+        <div className="flex items-center gap-3">
+          <Image src="/projep-simbolo.png" alt="Projep Jr" width={27} height={43} priority />
+          <div className="leading-tight">
+            <div className="text-lg font-extrabold">Projep Jr</div>
+            <div className="text-xs text-line">Sistema de gestão</div>
+          </div>
+        </div>
         <button className="md:hidden" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
       </div>
       <div className={`${open ? "block" : "hidden"} px-4 pb-4 md:block`}>
-        <label className="mb-1 block text-xs uppercase text-slate-400">Perfil</label>
+        <label className="mb-1 block text-xs font-semibold uppercase text-line">Perfil</label>
         <select
-          className="mb-4 w-full rounded bg-slate-800 p-2"
+          className="mb-4 w-full rounded-xl bg-white/10 p-2 font-semibold"
           value={role}
           onChange={(e) => change(e.target.value as Role)}
         >
           {ROLES.map((r) => (
-            <option key={r.value} value={r.value}>{r.label}</option>
+            <option key={r.value} value={r.value} className="text-ink">{r.label}</option>
           ))}
         </select>
         <nav className="flex flex-col gap-1">
@@ -39,7 +46,7 @@ export function Sidebar() {
               key={m.href}
               href={m.href}
               onClick={() => setOpen(false)}
-              className={`rounded px-3 py-2 ${path === m.href ? "bg-slate-700" : "hover:bg-slate-800"}`}
+              className={`rounded-xl px-3 py-2 font-semibold ${path === m.href ? "bg-brand" : "hover:bg-white/10"}`}
             >
               {m.label}
             </Link>

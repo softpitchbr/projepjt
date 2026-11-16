@@ -5,7 +5,7 @@ type Series = { key: string; name: string; color: string };
 
 export function BarsChart({ data, x, series }: { data: object[]; x: string; series: Series[] }) {
   return (
-    <div className="h-64 rounded-lg border border-slate-200 bg-white p-3">
+    <div className="h-64 rounded-xl border border-line bg-white p-3">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />
@@ -19,7 +19,7 @@ export function BarsChart({ data, x, series }: { data: object[]; x: string; seri
 
 export function LinesChart({ data, x, series }: { data: object[]; x: string; series: Series[] }) {
   return (
-    <div className="h-64 rounded-lg border border-slate-200 bg-white p-3">
+    <div className="h-64 rounded-xl border border-line bg-white p-3">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid strokeDasharray="3 3" />

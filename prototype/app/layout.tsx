@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
 import "./globals.css";
+
+const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"], weight: ["400", "600", "800"] });
 import { RoleProvider } from "@/components/RoleProvider";
 import { Sidebar } from "@/components/Sidebar";
 import { DemoBanner } from "@/components/DemoBanner";
@@ -11,8 +14,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className="h-full antialiased">
-      <body className="min-h-full bg-slate-50 text-slate-900">
+    <html lang="pt-BR" className={`${manrope.variable} h-full antialiased`}>
+      <body className="min-h-full bg-soft text-ink">
         <RoleProvider>
           <DemoBanner />
           <div className="flex flex-col md:flex-row">
