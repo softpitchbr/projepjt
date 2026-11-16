@@ -7,6 +7,8 @@ const plex = IBM_Plex_Mono({ variable: "--font-plex", subsets: ["latin"], weight
 import { RoleProvider } from "@/components/RoleProvider";
 import { Sidebar } from "@/components/Sidebar";
 import { DemoBanner } from "@/components/DemoBanner";
+import { ModeProvider } from "@/components/ModeProvider";
+import { DemoTop, DemoBottom } from "@/components/DemoBar";
 
 export const metadata: Metadata = {
   title: "Projepjt — protótipo",
@@ -18,11 +20,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${manrope.variable} ${plex.variable} h-full antialiased`}>
       <body className="min-h-full">
         <RoleProvider>
+          <ModeProvider>
           <DemoBanner />
           <div className="flex flex-col md:flex-row">
             <Sidebar />
-            <main className="flex-1 p-6">{children}</main>
+            <main className="min-w-0 flex-1 p-6">
+              <DemoTop />
+              {children}
+              <DemoBottom />
+            </main>
           </div>
+        </ModeProvider>
         </RoleProvider>
       </body>
     </html>

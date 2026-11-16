@@ -21,3 +21,19 @@ describe("computeSavings", () => {
     expect(r.meetingHoursYear).toBe(0);
   });
 });
+
+import { totalHoursYear } from "./savings";
+
+describe("totalHoursYear", () => {
+  it("soma horas de relatório e de reunião por ano", () => {
+    const i = {
+      toolCostYear: 0, reportHoursMonth: 20, reportHoursMonthAfter: 4, hourValue: 30,
+      meetingsPerMonth: 8, meetingMinutesBefore: 90, meetingMinutesAfter: 45, people: 6,
+    };
+    const r = computeSavings(i);
+    expect(totalHoursYear(i)).toBe((20 - 4) * 12 + r.meetingHoursYear);
+  });
+  it("não fica negativo", () => {
+    expect(totalHoursYear({ toolCostYear: 0, reportHoursMonth: 1, reportHoursMonthAfter: 9, hourValue: 1, meetingsPerMonth: 1, meetingMinutesBefore: 10, meetingMinutesAfter: 30, people: 1 })).toBe(0);
+  });
+});
