@@ -16,9 +16,9 @@ export default function Relatorios() {
   ];
   return (
     <Guard route="/relatorios">
-      <h1 className="mb-4 text-2xl font-extrabold text-ink">Relatórios</h1>
+      <h1 className="mb-4 text-2xl font-extrabold text-snow">Relatórios</h1>
       <button className="mb-4 rounded-xl bg-cta px-5 py-2.5 font-extrabold text-white hover:opacity-90" onClick={() => setOn(true)}>Gerar slides da RG (simulação)</button>
-      {on && <div className="grid gap-4 md:grid-cols-3">{slides.map((s) => <div key={s.t} className="aspect-video rounded-lg border bg-white p-4 shadow"><h2 className="font-bold">{s.t}</h2><p className="mt-2 text-sm">{s.b}</p></div>)}</div>}
+      {on && <div className="grid gap-4 md:grid-cols-3">{slides.map((s) => <div key={s.t} className="aspect-video rounded-lg border bg-panel p-4 shadow"><h2 className="font-bold">{s.t}</h2><p className="mt-2 text-sm">{s.b}</p></div>)}</div>}
     </Guard>
   );
 }

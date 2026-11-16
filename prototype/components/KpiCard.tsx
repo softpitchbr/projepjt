@@ -1,8 +1,8 @@
 export function KpiCard({ label, value, delta }: { label: string; value: string; delta?: string }) {
   return (
-    <div className="rounded-xl border border-line bg-white p-4">
-      <div className="text-sm text-muted">{label}</div>
-      <div className="text-2xl font-extrabold text-ink">{value}</div>
+    <div className="hud fade-up p-4">
+      <div className="font-mono text-[11px] uppercase tracking-widest text-muted">{label}</div>
+      <div className="glow mt-1 font-mono text-2xl font-bold text-brand-light">{value}</div>
       {delta && <div className="text-xs text-muted">{delta}</div>}
     </div>
   );

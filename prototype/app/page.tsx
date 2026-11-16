@@ -21,28 +21,33 @@ export default function ComoFunciona() {
   const [sel, setSel] = useState(0);
   return (
     <Guard route="/">
-      <h1 className="text-3xl font-extrabold text-ink">Como o sistema funciona</h1>
+      <div className="font-mono text-xs uppercase tracking-[0.25em] text-brand-light">Arquitetura</div>
+      <h1 className="text-3xl font-extrabold text-snow">Como o sistema funciona</h1>
       <p className="mb-6 mt-1 max-w-3xl text-muted">Um único lugar para todos os dados da Projep, com integração automática e números em que a diretoria pode confiar para decidir. Clique nas etapas.</p>
       <div className="grid gap-2 md:grid-cols-5">
         {steps.map((s, i) => (
           <button
             key={s.t}
             onClick={() => setSel(i)}
-            className={`rounded-xl border p-4 text-left ${sel === i ? "border-brand bg-brand text-white" : "border-line bg-white hover:border-brand"}`}
+            className={`rounded-xl border p-4 text-left ${sel === i ? "border-brand-light bg-brand-light/15 text-snow shadow-[0_0_18px_rgba(61,220,151,.35)]" : "border-line bg-panel text-snow hover:border-brand-light/60"}`}
           >
             <div className="text-xs font-semibold opacity-70">Etapa {i + 1}</div>
             <div className="text-lg font-extrabold">{s.t}</div>
-            <div className={`text-sm ${sel === i ? "text-white/90" : "text-muted"}`}>{s.s}</div>
+            <div className={`text-sm ${"text-muted"}`}>{s.s}</div>
           </button>
         ))}
       </div>
-      <div className="mt-3 rounded-xl border border-line bg-white p-5 text-lg">{steps[sel].d}</div>
+      <div className="flow-line mt-4" />
+      <div key={sel} className="hud fade-up mt-4 p-5 text-lg">
+        <div className="mb-1 font-mono text-xs uppercase tracking-[0.2em] text-brand-light">Etapa {sel + 1} · {steps[sel].t}</div>
+        {steps[sel].d}
+      </div>
 
-      <h2 className="mb-3 mt-10 text-xl font-extrabold text-ink">Por que o sistema não cai com 60 usuários</h2>
+      <h2 className="mb-3 mt-10 text-xl font-extrabold text-snow">Por que o sistema não cai com 60 usuários</h2>
       <div className="grid gap-3 md:grid-cols-2">
         {guards.map((g) => (
-          <div key={g.t} className="rounded-xl border border-line bg-white p-4">
-            <div className="font-extrabold text-brand">{g.t}</div>
+          <div key={g.t} className="hud fade-up p-4">
+            <div className="font-extrabold text-brand-light">{g.t}</div>
             <p className="text-sm text-muted">{g.d}</p>
           </div>
         ))}

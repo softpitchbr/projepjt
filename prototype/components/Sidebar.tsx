@@ -20,34 +20,34 @@ export function Sidebar() {
   }
 
   return (
-    <aside className="bg-ink text-white md:min-h-screen md:w-64 md:shrink-0">
+    <aside className="border-r border-line bg-void/80 backdrop-blur md:min-h-screen md:w-64 md:shrink-0">
       <div className="flex items-center justify-between p-4">
         <div className="flex items-center gap-3">
-          <Image src="/projep-simbolo.png" alt="Projep Jr" width={27} height={43} priority />
+          <Image src="/projep-simbolo.png" alt="Projep Jr" width={27} height={43} priority style={{ filter: "drop-shadow(0 0 8px rgba(224,122,27,.6))" }} />
           <div className="leading-tight">
-            <div className="text-lg font-extrabold">Projep Jr</div>
-            <div className="text-xs text-line">Sistema de gestão</div>
+            <div className="text-lg font-extrabold text-snow">Projep Jr</div>
+            <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-light">Centro de comando</div>
           </div>
         </div>
-        <button className="md:hidden" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
+        <button className="text-snow md:hidden" aria-label="Menu" onClick={() => setOpen(!open)}>☰</button>
       </div>
       <div className={`${open ? "block" : "hidden"} px-4 pb-4 md:block`}>
-        <label className="mb-1 block text-xs font-semibold uppercase text-line">Ver como</label>
-        <select className="mb-4 w-full rounded-xl bg-white/10 p-2 font-semibold" value={role} onChange={(e) => change(e.target.value as Role)}>
+        <label className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-muted">Ver como</label>
+        <select className="mb-4 w-full rounded-lg border border-line bg-void p-2 font-semibold text-snow" value={role} onChange={(e) => change(e.target.value as Role)}>
           {ROLES.map((r) => (
-            <option key={r.value} value={r.value} className="text-ink">{r.label}</option>
+            <option key={r.value} value={r.value} className="bg-void text-snow">{r.label}</option>
           ))}
         </select>
         {groups.map((g) => (
           <div key={g} className="mb-3">
-            <div className="mb-1 text-xs font-semibold uppercase text-line">{g}</div>
+            <div className="mb-1 font-mono text-[10px] uppercase tracking-widest text-muted">{g}</div>
             <nav className="flex flex-col gap-1">
               {items.filter((i) => i.group === g).map((m) => (
                 <Link
                   key={m.href}
                   href={m.href}
                   onClick={() => setOpen(false)}
-                  className={`rounded-xl px-3 py-2 font-semibold ${path === m.href ? "bg-brand" : "hover:bg-white/10"}`}
+                  className={`rounded-lg border px-3 py-2 font-semibold ${path === m.href ? "border-brand-light/60 bg-brand-light/10 text-brand-light" : "border-transparent text-snow/80 hover:border-line hover:bg-white/5"}`}
                 >
                   {m.label}
                 </Link>

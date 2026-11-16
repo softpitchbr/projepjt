@@ -21,12 +21,12 @@ export default function Vantagens() {
   const r = computeSavings(v);
   return (
     <Guard route="/vantagens">
-      <h1 className="text-3xl font-extrabold text-ink">Vantagens</h1>
+      <h1 className="text-3xl font-extrabold text-snow">Vantagens</h1>
       <p className="mb-4 mt-1 max-w-3xl text-muted">O que muda para a Projep. Os valores abaixo são <strong>estimativas</strong>: ajuste com os números reais e o resultado recalcula.</p>
       <div className="mb-8 grid gap-3 md:grid-cols-2">
         {wins.map(([t, d]) => (
-          <div key={t} className="rounded-xl border border-line bg-white p-4">
-            <div className="font-extrabold text-brand">{t}</div>
+          <div key={t} className="hud p-4">
+            <div className="font-extrabold text-brand-light">{t}</div>
             <p className="text-sm text-muted">{d}</p>
           </div>
         ))}

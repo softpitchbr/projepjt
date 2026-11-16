@@ -25,13 +25,13 @@ export default function Custos() {
 
   return (
     <Guard route="/custos">
-      <h1 className="text-3xl font-extrabold text-ink">Quanto custa manter</h1>
+      <h1 className="text-3xl font-extrabold text-snow">Quanto custa manter</h1>
       <p className="mb-4 mt-1 max-w-3xl text-muted">
         Estimativa de ordem de grandeza (preços de tabela aproximados, em dólar, convertidos pela cotação abaixo). Os valores finais virão na proposta, com a cotação do dia. Não inclui o valor do desenvolvimento.
       </p>
       <div className="mb-6 grid gap-2 md:grid-cols-3">
         {TIERS.map((x, i) => (
-          <button key={x.name} onClick={() => setTier(i)} className={`rounded-xl border p-4 text-left ${tier === i ? "border-brand bg-brand text-white" : "border-line bg-white hover:border-brand"}`}>
+          <button key={x.name} onClick={() => setTier(i)} className={`rounded-xl border p-4 text-left ${tier === i ? "border-brand-light bg-brand-light/15 text-snow shadow-[0_0_18px_rgba(61,220,151,.35)]" : "border-line bg-panel hover:border-brand-light"}`}>
             <div className="text-lg font-extrabold">{x.name}</div>
             <div className="text-2xl font-extrabold">{brl(monthlyCostBrl(x, usd))}<span className="text-sm font-semibold">/mês</span></div>
             <div className={`text-sm ${tier === i ? "text-white/90" : "text-muted"}`}>{x.description}</div>
@@ -40,7 +40,7 @@ export default function Custos() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        <section className="rounded-xl border border-line bg-white p-4">
+        <section className="hud p-4">
           <h2 className="mb-2 font-extrabold">O que está incluído ({t.name})</h2>
           <ul className="space-y-1 text-sm">
             {t.usd.map((i) => <li key={i.label} className="flex justify-between"><span>{i.label}</span><span className="text-muted">US$ {i.value}/mês</span></li>)}
@@ -66,7 +66,7 @@ export default function Custos() {
         <KpiCard label="Em 24 meses" value={brl(projection(24, monthly, growth / 100))} />
       </div>
 
-      <div className="mt-4 rounded-xl border border-line bg-white p-5">
+      <div className="mt-4 hud p-5">
         <div className="text-sm text-muted">Economia estimada por mês (premissas padrão da tela Vantagens, sem edições): {brl(savingsMonth)}</div>
         <div className="mt-1 text-lg font-extrabold">
           {payback === null
@@ -79,9 +79,9 @@ export default function Custos() {
 
       <h2 className="mb-2 mt-8 text-xl font-extrabold">Linha do tempo estimada</h2>
       <ol className="space-y-2 text-sm">
-        <li className="rounded-xl border border-line bg-white p-3"><strong>Mês 0:</strong> implantação (investimento inicial, a definir na proposta).</li>
-        <li className="rounded-xl border border-line bg-white p-3"><strong>Meses 1 a 12:</strong> custo mensal de infra e suporte, como acima.</li>
-        <li className="rounded-xl border border-line bg-white p-3"><strong>Cerca do mês 12:</strong> revisar plano. Subir de faixa só se o uso passar de ~80 usuários ou o volume de dados crescer muito; senão, o custo se mantém.</li>
+        <li className="hud p-3"><strong>Mês 0:</strong> implantação (investimento inicial, a definir na proposta).</li>
+        <li className="hud p-3"><strong>Meses 1 a 12:</strong> custo mensal de infra e suporte, como acima.</li>
+        <li className="hud p-3"><strong>Cerca do mês 12:</strong> revisar plano. Subir de faixa só se o uso passar de ~80 usuários ou o volume de dados crescer muito; senão, o custo se mantém.</li>
       </ol>
     </Guard>
   );
