@@ -4,8 +4,8 @@ import { Guard } from "@/components/Guard";
 import { useMode } from "@/components/ModeProvider";
 import { CountUp } from "@/components/Hud";
 import { NumField } from "@/components/NumField";
-import { SAVINGS_DEFAULTS } from "@/data/defaults";
-import { computeSavings, totalHoursYear, type SavingsInput } from "@/lib/savings";
+import { RUN_COST_MONTH, SAVINGS_DEFAULTS } from "@/data/defaults";
+import { hoursAfter, hoursBefore, yearCostAfter, yearCostBefore, type SavingsInput } from "@/lib/savings";
 import { brl } from "@/lib/metrics";
 
 type Row = { what: string; sem: string; com: string; src: "citado" | "estimativa" };
@@ -24,9 +24,11 @@ export default function Vantagens() {
   const { mode } = useMode();
   const [v, setV] = useState<SavingsInput>(SAVINGS_DEFAULTS);
   const set = (k: keyof SavingsInput) => (n: number) => setV({ ...v, [k]: n });
-  const r = computeSavings(v);
-  const hours = totalHoursYear(v);
   const sem = mode === "sem";
+  const hours = sem ? hoursBefore(v) : hoursAfter(v);
+  const cost = sem ? yearCostBefore(v) : yearCostAfter(v, RUN_COST_MONTH);
+  const savedHours = hoursBefore(v) - hoursAfter(v);
+  const net = yearCostBefore(v) - yearCostAfter(v, RUN_COST_MONTH);
 
   return (
     <Guard route="/vantagens">
@@ -38,14 +40,14 @@ export default function Vantagens() {
 
       <div className="mb-6 grid gap-3 md:grid-cols-3">
         <div className={`${sem ? "hud-bad" : "hud"} fade-up p-5 text-center`}>
-          <div className="font-mono text-xs uppercase tracking-widest text-muted">{sem ? "Horas gastas por ano" : "Horas devolvidas ao time por ano"}</div>
+          <div className="font-mono text-xs uppercase tracking-widest text-muted">{sem ? "Horas gastas por ano, hoje" : "Horas gastas por ano, com o sistema"}</div>
           <div className={`font-mono text-5xl font-bold ${sem ? "glow-bad text-accent-light" : "glow text-brand-light"}`}><CountUp value={hours} format={(n) => `${Math.round(n).toLocaleString("pt-BR")} h`} /></div>
-          <div className="text-xs text-muted">em relatórios e reuniões</div>
+          <div className="text-xs text-muted">{sem ? "em relatórios e reuniões" : `${Math.round(savedHours).toLocaleString("pt-BR")} h devolvidas ao time`}</div>
         </div>
         <div className={`${sem ? "hud-bad" : "hud"} fade-up p-5 text-center`} style={{ animationDelay: "150ms" }}>
-          <div className="font-mono text-xs uppercase tracking-widest text-muted">{sem ? "Custo escondido por ano" : "Economia estimada por ano"}</div>
-          <div className={`font-mono text-5xl font-bold ${sem ? "glow-bad text-accent-light" : "glow text-brand-light"}`}><CountUp value={r.totalYear} format={(n) => brl(n)} /></div>
-          <div className="text-xs text-muted">ferramentas + horas do time</div>
+          <div className="font-mono text-xs uppercase tracking-widest text-muted">{sem ? "Custo anual hoje" : "Custo anual com o sistema"}</div>
+          <div className={`font-mono text-5xl font-bold ${sem ? "glow-bad text-accent-light" : "glow text-brand-light"}`}><CountUp value={cost} format={(n) => brl(n)} /></div>
+          <div className="text-xs text-muted">{sem ? "ferramenta paga + horas do time" : `horas restantes + ${brl(RUN_COST_MONTH)}/mês para operar`}</div>
         </div>
         <div className={`${sem ? "hud-bad" : "hud"} fade-up p-5 text-center`} style={{ animationDelay: "300ms" }}>
           <div className="font-mono text-xs uppercase tracking-widest text-muted">Indicadores com números conflitantes</div>
@@ -53,6 +55,14 @@ export default function Vantagens() {
           <div className="text-xs text-muted">{sem ? "dois relatórios, dois valores" : "fonte única da verdade"}</div>
         </div>
       </div>
+
+      {!sem && (
+        <div className="hud fade-up mb-6 p-4 text-center">
+          <span className="text-muted">Economia líquida estimada, já descontando o custo de operar: </span>
+          <span className="glow font-mono text-2xl font-bold text-brand-light">{brl(Math.max(0, net))}</span>
+          <span className="text-muted"> por ano</span>
+        </div>
+      )}
 
       <div className="hud overflow-hidden">
         <table className="w-full text-sm">

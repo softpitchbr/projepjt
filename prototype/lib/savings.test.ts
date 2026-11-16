@@ -37,3 +37,25 @@ describe("totalHoursYear", () => {
     expect(totalHoursYear({ toolCostYear: 0, reportHoursMonth: 1, reportHoursMonthAfter: 9, hourValue: 1, meetingsPerMonth: 1, meetingMinutesBefore: 10, meetingMinutesAfter: 30, people: 1 })).toBe(0);
   });
 });
+
+import { hoursBefore, hoursAfter, yearCostBefore, yearCostAfter } from "./savings";
+
+describe("custo antes e depois", () => {
+  const i = {
+    toolCostYear: 6000, reportHoursMonth: 20, reportHoursMonthAfter: 4, hourValue: 25,
+    meetingsPerMonth: 8, meetingMinutesBefore: 90, meetingMinutesAfter: 45, people: 6,
+  };
+  it("horas antes e depois", () => {
+    expect(hoursBefore(i)).toBe(20 * 12 + (90 / 60) * 8 * 12 * 6);
+    expect(hoursAfter(i)).toBe(4 * 12 + (45 / 60) * 8 * 12 * 6);
+  });
+  it("sem custo de operação, antes - depois = economia bruta", () => {
+    expect(yearCostBefore(i) - yearCostAfter(i, 0)).toBeCloseTo(computeSavings(i).totalYear);
+  });
+  it("com o sistema, o custo de operação mensal entra no ano", () => {
+    expect(yearCostAfter(i, 500)).toBe(hoursAfter(i) * 25 + 6000);
+  });
+  it("o custo da ferramenta antiga some depois (substituída)", () => {
+    expect(yearCostBefore(i)).toBe(6000 + hoursBefore(i) * 25);
+  });
+});

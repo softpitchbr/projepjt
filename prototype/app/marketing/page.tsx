@@ -19,7 +19,7 @@ export default function Marketing() {
       </div>
       <div className="grid gap-4 lg:grid-cols-2">
         <BarsChart data={data} x="month" series={[{ key: "leads", name: "Leads", color: "#3ddc97" }, { key: "plannedLeads", name: "Planejado", color: "#4a6b5b" }]} />
-        <LinesChart data={data} x="month" series={[{ key: "cpl", name: "Custo por lead (R$)", color: "#ff6b9a" }]} />
+        <LinesChart data={data} x="month" series={[{ key: "cpl", name: "Custo por lead (R$)", color: "#ff5a47" }]} />
       </div>
     </Guard>
   );

@@ -28,7 +28,7 @@ export function CountUp({ value, format = (n: number) => String(Math.round(n)), 
   return <>{format(n)}</>;
 }
 
-const TONE = { ok: "#3ddc97", "atenção": "#e07a1b", risco: "#ff6b9a" } as const;
+const TONE = { ok: "#3ddc97", "atenção": "#e07a1b", risco: "#ff5a47" } as const;
 
 // Medidor em anel. `fraction` 0..1 (pode passar de 1, o anel trava em 100%).
 export function Gauge({ fraction, level, children, label, sub }: { fraction: number; level: Level; children: ReactNode; label: string; sub?: string }) {

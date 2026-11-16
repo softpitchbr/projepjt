@@ -32,7 +32,7 @@ export function DemoTop() {
       </ol>
       {MODE_PAGES.includes(path) && (
         <div className="flex overflow-hidden rounded-full border border-line font-mono text-xs font-bold uppercase" role="group" aria-label="Modo">
-          <button onClick={() => setMode("sem")} className={`px-4 py-2 ${mode === "sem" ? "bg-accent-light/20 text-accent-light shadow-[0_0_16px_rgba(255,107,154,.4)]" : "text-muted"}`}>Sem o sistema</button>
+          <button onClick={() => setMode("sem")} className={`px-4 py-2 ${mode === "sem" ? "bg-accent-light/20 text-accent-light shadow-[0_0_16px_rgba(255,90,71,.4)]" : "text-muted"}`}>Sem o sistema</button>
           <button onClick={() => setMode("com")} className={`px-4 py-2 ${mode === "com" ? "bg-brand-light/20 text-brand-light shadow-[0_0_16px_rgba(61,220,151,.4)]" : "text-muted"}`}>Com o sistema</button>
         </div>
       )}

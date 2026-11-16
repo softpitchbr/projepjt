@@ -58,7 +58,7 @@ export default function Capacidade() {
         <Panel a={PROPOSED} users={users} />
       </div>
       <h2 className="mb-2 mt-8 text-lg font-extrabold">Tempo de resposta conforme cresce o número de usuários (ms)</h2>
-      <LinesChart data={data} x="usuarios" series={[{ key: "atual", name: "Site atual", color: "#ff6b9a" }, { key: "proposta", name: "Arquitetura proposta", color: "#3ddc97" }]} />
+      <LinesChart data={data} x="usuarios" series={[{ key: "atual", name: "Site atual", color: "#ff5a47" }, { key: "proposta", name: "Arquitetura proposta", color: "#3ddc97" }]} />
       <h2 className="mb-2 mt-8 text-lg font-extrabold">Premissas do modelo</h2>
       <table className="w-full hud text-sm">
         <thead><tr className="text-left font-mono text-xs uppercase text-muted"><th className="p-2">Premissa</th><th>Atual</th><th>Proposta</th></tr></thead>

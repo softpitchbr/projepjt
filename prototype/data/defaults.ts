@@ -11,3 +11,8 @@ export const SAVINGS_DEFAULTS: SavingsInput = {
   meetingMinutesAfter: 45,
   people: 6,
 };
+
+import { TIERS, monthlyCostBrl } from "@/lib/costs";
+
+// Custo mensal de operar o sistema (faixa Enxuta + 4 h de suporte a R$ 80/h), igual aos padrões da tela Custos.
+export const RUN_COST_MONTH = monthlyCostBrl(TIERS[0], 5.5) + 4 * 80;

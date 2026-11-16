@@ -19,3 +19,20 @@ export function computeSavings(i: SavingsInput) {
 export function totalHoursYear(i: SavingsInput): number {
   return Math.max(0, i.reportHoursMonth - i.reportHoursMonthAfter) * 12 + computeSavings(i).meetingHoursYear;
 }
+
+export function hoursBefore(i: SavingsInput): number {
+  return i.reportHoursMonth * 12 + (i.meetingMinutesBefore / 60) * i.meetingsPerMonth * 12 * i.people;
+}
+
+export function hoursAfter(i: SavingsInput): number {
+  return i.reportHoursMonthAfter * 12 + (i.meetingMinutesAfter / 60) * i.meetingsPerMonth * 12 * i.people;
+}
+
+// Hoje: ferramenta paga + horas do time. Depois: a ferramenta é substituída; entram horas restantes + custo de operar o sistema.
+export function yearCostBefore(i: SavingsInput): number {
+  return i.toolCostYear + hoursBefore(i) * i.hourValue;
+}
+
+export function yearCostAfter(i: SavingsInput, runCostMonth: number): number {
+  return hoursAfter(i) * i.hourValue + runCostMonth * 12;
+}
